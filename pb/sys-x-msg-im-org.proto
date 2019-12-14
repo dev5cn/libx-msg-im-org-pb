@@ -1,0 +1,183 @@
+/*
+  Copyright 2019 www.dev5.cn, Inc. dev5@qq.com
+ 
+  This file is part of X-MSG-IM.
+ 
+  X-MSG-IM is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  X-MSG-IM is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+ 
+  You should have received a copy of the GNU Affero General Public License
+  along with X-MSG-IM.  If not, see <https://www.gnu.org/licenses/>.
+ */
+syntax = "proto3";
+
+import "net-x-msg-im-org.proto";
+
+option java_package = "x.msg.pb";
+option java_outer_classname = "XmsgImOrgSysPb";
+message XmsgImMgrOrgNodeRootQueryReq
+{
+    map<string, string> ext = 1; 
+}
+
+message XmsgImMgrOrgNodeRootQueryRsp
+{
+    string cgt = 1; 
+    string name = 2; 
+    XmsgImOrgNodeInfo info = 3; 
+    uint64 gts = 4; 
+    uint64 uts = 5; 
+}
+message XmsgImMgrOrgNodeUsrAddReq
+{
+    string pcgt = 1; 
+   	XmsgImOrgNodeInfo infoAccount = 2; 
+    string nameUsr = 3; 
+    string nameDept = 4; 
+    bool enableUsr = 5; 
+    bool enableDept = 6; 
+    XmsgImOrgNodeInfo infoUsr = 7; 
+    XmsgImOrgNodeInfo infoDept = 8; 
+}
+
+message XmsgImMgrOrgNodeUsrAddRsp
+{
+    string cgt = 1; 
+}
+message XmsgImMgrOrgNodeDeptAddReq
+{
+    string pcgt = 1; 
+    string name = 2; 
+    bool enable = 3; 
+    XmsgImOrgNodeInfo info = 4; 
+}
+
+message XmsgImMgrOrgNodeDeptAddRsp
+{
+    string cgt = 1; 
+}
+message XmsgImMgrOrgNodeDeptUsrAddReq
+{
+    string dcgt = 1; 
+    string ucgt = 2; 
+    string name = 3; 
+    bool enable = 4; 
+    XmsgImOrgNodeInfo info = 5; 
+}
+
+message XmsgImMgrOrgNodeDeptUsrAddRsp
+{
+    map<string, string> ext = 1; 
+}
+message XmsgImMgrOrgNodeUsrUpdateReq
+{
+    string cgt = 1; 
+    string name = 2; 
+    XmsgImOrgNodeInfo infoAccountUpsert = 3; 
+    repeated string infoAccountRemove = 4; 
+    XmsgImOrgNodeInfo upsert = 5; 
+    repeated string remove = 6; 
+}
+
+message XmsgImMgrOrgNodeUsrUpdateRsp
+{
+    map<string, string> ext = 1; 
+}
+message XmsgImMgrOrgNodeDeptUpdateReq
+{
+    string cgt = 1; 
+    string name = 2; 
+    XmsgImOrgNodeInfo upsert = 3; 
+    repeated string remove = 4; 
+}
+
+message XmsgImMgrOrgNodeDeptUpdateRsp
+{
+    map<string, string> ext = 1; 
+}
+message XmsgImMgrOrgNodeDeptUsrUpdateReq
+{
+    string dcgt = 1; 
+    string ucgt = 2; 
+    string name = 3; 
+    XmsgImOrgNodeInfo upsert = 4; 
+    repeated string remove = 5; 
+}
+
+message XmsgImMgrOrgNodeDeptUsrUpdateRsp
+{
+    map<string, string> ext = 1; 
+}
+message XmsgImMgrOrgNodeDisableOrEnableReq
+{
+    string cgt = 1; 
+    bool enable = 2; 
+}
+
+message XmsgImMgrOrgNodeDisableOrEnableRsp
+{
+    map<string, string> ext = 1; 
+}
+message XmsgImMgrOrgNodeDeptUsrDisableOrEnableReq
+{
+    string dcgt = 1; 
+    string ucgt = 2; 
+}
+
+message XmsgImMgrOrgNodeDeptUsrDisableOrEnableRsp
+{
+    map<string, string> ext = 1; 
+}
+message XmsgImAuthOrgRegisteReq
+{
+    bool enable = 1; 
+    map<string, string> info = 2; 
+}
+
+message XmsgImAuthOrgRegisteRsp
+{
+    string cgt = 1; 
+}
+message XmsgApClientKickReq
+{
+    string ccid = 1; 
+}
+
+message XmsgApClientKickRsp
+{
+    map<string, string> ext = 1; 
+}
+message XmsgApClientLostNotice
+{
+	string apCgt = 1; 
+    string cgt = 2; 
+    string plat = 3; 
+    string did = 4; 
+    string ccid = 5; 
+}
+message XmsgApClientEstbNotice
+{
+    string apCgt = 1; 
+    string cgt = 2; 
+    string plat = 3; 
+    string did = 4; 
+    string ccid = 5; 
+}
+message XmsgImAuthOrgUpdateAccountInfoReq
+{
+	string cgt = 1; 
+    map<string, string> upsert = 2; 
+    repeated string remove = 3; 
+}
+
+message XmsgImAuthOrgUpdateAccountInfoRsp
+{
+    map<string, string> ext = 1; 
+}
